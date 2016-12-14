@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.description = file_data["description"]
   s.author = file_data["author"]
 
-  spec.files = `git ls-files`.split($/)
-  spec.require_paths = ["lib"]
+  s.files = `git ls-files`.split($/)
+  s.require_paths = ["lib"]
 
   s.summary = "some task for dnet capistrano"
   s.email = 'itapps@dwp.co.id'
