@@ -2,6 +2,7 @@
   "name": "capistrano_tasks",
   "version": "0.0.1",
   "description": "some task for dnet capistrano",
+  "author": "itapps",
   "scripts": {
     "changelog": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,7 +10,6 @@
     "type": "git",
     "url": "git@repo.dwp.io:itapps/capistrano_tasks.git"
   },
-  "author": "",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

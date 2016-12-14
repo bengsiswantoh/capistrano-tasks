@@ -3,10 +3,14 @@ file = File.read('package.json')
 file_data = JSON.parse(file)
 
 Gem::Specification.new do |s|
-  s.name = 'capistrano_tasks'
-  s.version = '0.0.1'
-  s.description = 'some task for dnet capistrano'
-  s.authors = 'itapps'
+  s.name = file_data["name"]
+  s.version = file_data["version"]
+  s.description = file_data["description"]
+  s.author = file_data["author"]
+
+  spec.files = `git ls-files`.split($/)
+  spec.require_paths = ["lib"]
+
   s.summary = "some task for dnet capistrano"
   s.email = 'itapps@dwp.co.id'
   s.homepage = 'https://repo.dwp.io/itapps/capistrano_tasks'
