@@ -16,6 +16,7 @@ require 'capistrano_tasks/mattermost'
 ```
 
 ### Options
+Add options to deploy.rb
 
 ```ruby
 # for mattermost
