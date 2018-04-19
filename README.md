@@ -20,7 +20,6 @@ Add options to deploy.rb
 
 ```ruby
 # for mattermost
-set :application_link, 'application link'  # "https://repo.dwp.io"
 set :mattermost, 'mattermost incoming hook' # mattermost incoming hook
 set :mattermost_username, 'mattermost username' # overwrite mattermost incoming hook username
 set :mattermost_channel, 'mattermost channel' #channel you want to notify
@@ -40,7 +39,7 @@ cap production mattermost:info_start
 
 Add to deploy.rb if you want it to run when deploying app
 
-````ruby
+```ruby
 before :starting, "mattermost:info_start"
 after :publishing, "mattermost:info_done"
 ```
