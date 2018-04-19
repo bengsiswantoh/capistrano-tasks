@@ -12,7 +12,7 @@ def send_notif(hostname, process)
 
   # Send 2nd notif
   data[:channel] = fetch(:mattermost_notify_me)
-  execute %{curl -i -X POST -d 'payload=#{data.to_json}' #{address}} if data[:channel].present?
+  execute %{curl -i -X POST -d 'payload=#{data.to_json}' #{address}} if data[:channel] != ""
 end
 
 namespace :mattermost do
