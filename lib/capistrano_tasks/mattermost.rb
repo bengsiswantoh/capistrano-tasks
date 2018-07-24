@@ -1,18 +1,23 @@
 require 'json'
+require 'httparty'
 
 def send_notif(hostname, process)
   # Send 1st notif
-  application_link = fetch(:application_link)
   address = fetch(:mattermost)
-  data = {}
-  data[:username] = fetch(:mattermost_username)
-  data[:channel] = fetch(:mattermost_channel)
-  data[:text] = "@channel #{process} deploy #{hostname}"
-  execute %{curl -i -X POST -d 'payload=#{data.to_json}' #{address}}
+
+  headers = { 'Content-Type' => 'application/json' }
+
+  body = {}
+  body[:username] = fetch(:mattermost_username)
+  body[:channel] = fetch(:mattermost_channel)
+  body[:text] = "@channel #{process} deploy #{hostname}"
+  # execute %{curl -i -X POST -d 'payload=#{body.to_json}' #{address}}
+  HTTParty.post(address, body: body.to_json, headers: headers)
 
   # Send 2nd notif
-  data[:channel] = fetch(:mattermost_notify_me)
-  execute %{curl -i -X POST -d 'payload=#{data.to_json}' #{address}} if data[:channel] != ""
+  body[:channel] = fetch(:mattermost_notify_me)
+  # execute %{curl -i -X POST -d 'payload=#{body.to_json}' #{address}} if body[:channel] != ""
+  HTTParty.post(address, body: body.to_json, headers: headers) if body[:channel] != ""
 end
 
 namespace :mattermost do
