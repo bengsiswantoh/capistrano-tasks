@@ -1,5 +1,6 @@
-require 'json'
-file = File.read('package.json')
+require "json"
+
+file = File.read("package.json")
 file_data = JSON.parse(file)
 
 Gem::Specification.new do |s|
@@ -11,7 +12,9 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split($/)
   s.require_paths = ["lib"]
 
-  s.summary = "some task for dnet capistrano"
-  s.email = 'itapps@dwp.co.id'
-  s.homepage = 'https://repo.dwp.io/itapps/capistrano_tasks'
+  s.summary = "some task for capistrano"
+  s.email = "itapps@dwp.co.id"
+  s.homepage = "https://repo.dwp.io/itapps/capistrano_tasks"
+
+  spec.add_development_dependency "httparty"
 end

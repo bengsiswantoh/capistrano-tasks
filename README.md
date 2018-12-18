@@ -1,7 +1,7 @@
 # Capistrano task
 
-
 ## Install
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -9,6 +9,7 @@ gem 'capistrano_tasks', git: 'git@repo.dwp.io:itapps/capistrano_tasks.git'
 ```
 
 ## Mattermost
+
 Add this line to Capfile
 
 ```ruby
@@ -16,6 +17,7 @@ require 'capistrano_tasks/mattermost'
 ```
 
 ### Options
+
 Add options to deploy.rb
 
 ```ruby
@@ -29,10 +31,13 @@ set :mattermost_notify_me, 'mattermost channel' # put blank string if you don't 
 ### Usage
 
 Run a remote mattermost to info start deploy with:
+
 ```bash
 cap production mattermost:info_start
 ```
+
 Run a remote mattermost to info done deploy with:
+
 ```bash
 cap production mattermost:info_start
 ```
@@ -42,4 +47,33 @@ Add to deploy.rb if you want it to run when deploying app
 ```ruby
 before :starting, "mattermost:info_start"
 after :publishing, "mattermost:info_done"
+```
+
+## NPM
+
+Add this line to Capfile
+
+```ruby
+require 'capistrano_tasks/npm'
+```
+
+### Usage
+
+Run a remote npm install with:
+
+```bash
+cap production npm:current:install
+```
+
+Run a remote npm run start with:
+
+```bash
+cap production npm:current:run_build
+```
+
+Add to deploy.rb if you want it to run when deploying app
+
+```ruby
+before :updated, "npm:release:install"
+before :updated, "npm:release:run_build"
 ```
