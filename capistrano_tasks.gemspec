@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.email = "itapps@dwp.co.id"
   s.homepage = "https://repo.dwp.io/itapps/capistrano_tasks"
 
-  spec.add_development_dependency "httparty"
+  s.add_development_dependency "httparty"
 end
