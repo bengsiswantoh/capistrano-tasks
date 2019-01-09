@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://repo.dwp.io/itapps/capistrano_tasks/compare/v0.1.0...v1.1.0) (2019-01-09)
+
+
+### Features
+
+* **npm:** add npm install and run build ([dc5c948](https://repo.dwp.io/itapps/capistrano_tasks/commits/dc5c948))
+* **spa:** add download .htaccess for spa ([c41ebe8](https://repo.dwp.io/itapps/capistrano_tasks/commits/c41ebe8))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://repo.dwp.io/itapps/capistrano_tasks/compare/v0.0.2...v0.1.0) (2018-07-24)
 
