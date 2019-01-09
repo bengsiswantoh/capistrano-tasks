@@ -21,7 +21,6 @@ require 'capistrano_tasks/mattermost'
 Add options to deploy.rb
 
 ```ruby
-# for mattermost
 set :mattermost, 'mattermost incoming hook' # mattermost incoming hook
 set :mattermost_username, 'mattermost username' # overwrite mattermost incoming hook username
 set :mattermost_channel, 'mattermost channel' #channel you want to notify
@@ -65,7 +64,7 @@ Run a remote npm install with:
 cap production npm:current:install
 ```
 
-Run a remote npm run start with:
+Run a remote npm run build with:
 
 ```bash
 cap production npm:current:run_build
@@ -76,4 +75,34 @@ Add to deploy.rb if you want it to run when deploying app
 ```ruby
 before :updated, "npm:release:install"
 before :updated, "npm:release:run_build"
+```
+
+## SPA
+
+Add this line to Capfile
+
+```ruby
+require 'capistrano_tasks/spa'
+```
+
+### Options
+
+Add options to deploy.rb
+
+```ruby
+set :spa_build_directory, 'spa build directory' # spa build directory
+```
+
+### Usage
+
+Run a remote download .htaccess with:
+
+```bash
+cap production spa:current:download_htaccess
+```
+
+Add to deploy.rb if you want it to run when deploying app
+
+```ruby
+before :updated, "spa:release:download_htaccess"
 ```
